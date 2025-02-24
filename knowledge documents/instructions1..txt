@@ -1,0 +1,49 @@
+?? Backend Development (FastAPI + Python)
+? FastAPI – To build APIs for your mobile app
+? Python Basics – If you’re not comfortable with Python yet
+? REST APIs – Learn how to create API endpoints
+? Async Programming – FastAPI uses async for better performance
+
+?? What to Learn?
+ FastAPI basics (GET, POST, PUT, DELETE requests)
+ Middleware & Authentication (OAuth, JWT)
+ Connecting FastAPI with a Database (MongoDB/Firebase)
+ Deploying FastAPI on a cloud server (AWS/GCP)
+?? Frontend Development (Flutter or React Native)
+? Flutter (Dart) – Best choice for fast development
+? React Native (JS/TS) – If your team prefers JavaScript
+? HTTP Requests – Learn how to connect frontend to FastAPI
+
+?? What to Learn?
+ Flutter basics (Widgets, State Management)
+ Making API calls with http package (Flutter)
+ UI/UX Design (Responsive layouts)
+ Push Notifications (Firebase)
+?? Database (MongoDB or Firebase Firestore)
+? MongoDB (NoSQL) – For storing emails & user data
+? Firebase Firestore – Easier if using Firebase for notifications
+? CRUD Operations – Learn how to store & retrieve emails
+
+?? What to Learn?
+ MongoDB basics (Documents, Collections)
+ Firebase Firestore setup & integration
+ Connecting MongoDB with FastAPI
+ Implementing database queries
+?? AI & NLP (Fake Email Detection)
+? Natural Language Processing (NLP) – To detect scam keywords
+? Machine Learning (Optional) – If you want advanced filtering
+? Python Libraries – NLTK, Scikit-learn, TensorFlow
+
+?? What to Learn?
+ Text processing with NLTK (removing spam words)
+ Training a simple ML model with Scikit-learn
+ Connecting AI model with FastAPI
+?? Cloud Deployment & DevOps
+? Cloud Services (AWS/GCP) – To host your backend
+? Docker & Containers – For easy deployment
+? CI/CD Pipelines – Automate app updates
+
+?? What to Learn?
+ Deploying FastAPI on AWS/GCP/Vercel
+ Setting up Docker containers for your app
+ Automating deployments with GitHub Actions
