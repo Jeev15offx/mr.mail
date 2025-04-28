@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Professional Mail</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+      overflow: hidden;
+      height: 100vh;
+      background-color: #000; /* Black background */
+      position: relative;
+    }
+
+    /* Moving gradient background */
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #000000, #4b004b);
+      background-size: 400% 400%;
+      animation: gradientAnimation 10s ease infinite;
+      z-index: -1;
+    }
+
+    /* Sparkling golden effect */
+    @keyframes sparkle {
+      0% {
+        transform: scale(0.8);
+        opacity: 0.7;
+      }
+      50% {
+        transform: scale(1.2);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(0.8);
+        opacity: 0.7;
+      }
+    }
+
+    /* Sparkles styling */
+    .sparkles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .sparkle {
+      position: absolute;
+      background: #f8da31ec;
+      border-radius: 50%;
+      opacity: 0;
+      animation: sparkle 2s infinite ease-in-out;
+    }
+
+    .sparkle-1 {
+      top: 20%;
+      left: 10%;
+      width: 10px;
+      height: 10px;
+      animation-delay: 0s;
+    }
+
+    .sparkle-2 {
+      top: 60%;
+      left: 70%;
+      width: 15px;
+      height: 15px;
+      animation-delay: 0.3s;
+    }
+
+    .sparkle-3 {
+      top: 80%;
+      left: 30%;
+      width: 12px;
+      height: 12px;
+      animation-delay: 0.6s;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #a50000;
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Container for sections */
+    .container {
+      width: 80%;
+      margin: auto;
+      padding: 30px 0;
+      z-index: 1;
+    }
+
+    h1 {
+      font-size: 36px;
+      color: white;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-top: 20px;
+      color: #FFD700;
+      text-align: center;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* Team section layout */
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid layout */
+      gap: 40px;
+      justify-items: center;
+      margin-top: 40px;
+    }
+
+    .team-member {
+      width: 250px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      text-align: center;
+    }
+
+    /* Glowing effect on hover */
+    .team-member:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .team-member img {
+      width: 180px; /* Larger size */
+      height: 220px;
+      border-radius: 100%;
+      margin-bottom: 15px;
+      box-shadow: 0 0 25px 10px rgba(255, 215, 0, 0.9); /* Strong golden glowing effect */
+      transition: all 0.3s ease;
+    }
+
+    .team-member h3 {
+      font-size: 22px;
+      color: #FFD700;
+      margin-bottom: 10px;
+    }
+
+    .team-member p {
+      font-size: 16px;
+      color: white;
+    }
+
+    footer {
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Responsive layout for mobile */
+    @media (max-width: 768px) {
+      .team {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid for smaller screens */
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="background"></div> <!-- Dark Red Gradient Background -->
+
+  <header>
+    <h1>About Us</h1>
+    <p>Learn more about our team and mission</p>
+  </header>
+
+  <div class="container">
+    <section>
+      <h2 class="section-title">Our Mission</h2>
+      <p>
+        At Mr.Mail, we strive to provide a secure, fast, and user-friendly email platform designed to meet the needs of businesses and individuals alike. Our goal is to deliver innovative communication solutions, focusing on simplicity, reliability, and excellent customer service.
+      </p>
+
+      <p>
+        We believe in making digital communication a seamless experience, offering tools that help users stay organized, manage their time, and stay connected with the people who matter most.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="section-title">Meet Our Team</h2>
+      <div class="team">
+        <div class="team-member">
+            <img src="images/jeevan.jpg" alt="Jeevan - CEO & Co-Founder">
+          <h3>Jeevan</h3>
+          <p>CEO & Co-Founder</p>
+        </div>
+        <div class="team-member">
+          <img src="images/loki.jpg" alt="Chief Operating Officer">
+          <h3>Logith</h3>
+          <p>Chief Operating Officer</p>
+        </div>
+        <div class="team-member">
+          <img src="images/jeeth.jpg" alt="Lead Developer">
+          <h3>Jeeth</h3>
+          <p>Lead Developer</p>
+        </div>
+        <div class="team-member">
+          <img src="https://via.placeholder.com/150" alt="Dhanush Kumar">
+          <h3>Dhanush Kumar</h3>
+          <p>Ast. Lead Developer</p>
+        </div>
+        <div class="team-member">
+          <img src="https://via.placeholder.com/150" alt="Dharun">
+          <h3>Dharun</h3>
+          <p>Product Manager</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Professional Mail. All rights reserved.</p>
+  </footer>
+
+  <!-- Golden Sparkles -->
+  <div class="sparkles">
+    <div class="sparkle sparkle-1"></div>
+    <div class="sparkle sparkle-2"></div>
+    <div class="sparkle sparkle-3"></div>
+  </div>
+
+</body>
+</html>

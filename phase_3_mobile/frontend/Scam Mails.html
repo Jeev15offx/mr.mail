@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scam Mails</title>
+  <style>
+    /* Global Styling */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1a0000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1s ease-out;
+    }
+
+    /* Background Animation */
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff0000, #330000);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease infinite;
+      z-index: -1;
+      filter: blur(6px);
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Page Entry Animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Heading */
+    h1 {
+      text-align: center;
+      margin: 20px;
+      font-size: 36px;
+      color: #ff4c4c;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    /* Back Button */
+    .back-btn {
+      background-color: #cc0000;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      position: absolute;
+      top: 30px;
+      left: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #990000;
+      transform: scale(1.05) rotate(-2deg);
+    }
+
+    /* Table Styling */
+    table {
+      width: 90%;
+      margin: 50px auto;
+      border-collapse: collapse;
+      background: #2b0000;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      overflow: hidden;
+      animation: fadeIn 1s ease-out;
+    }
+
+    thead {
+      background: linear-gradient(135deg, #ff1a1a, #cc0000);
+      color: white;
+    }
+
+    th, td {
+      padding: 20px;
+      text-align: left;
+      font-size: 18px;
+    }
+
+    tr {
+      border-bottom: 1px solid #660000;
+    }
+
+    tr.primary {
+      background-color: #660000;
+    }
+
+    tr:hover {
+      background-color: #400000;
+    }
+
+    a.mail-link {
+      color: #ff6666;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.mail-link:hover {
+      color: #ff9999;
+      text-decoration: underline;
+    }
+
+    .pdf-icon {
+      font-size: 16px;
+      color: #ff6666;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      border-top: 1px solid #660000;
+    }
+
+    footer a {
+      color: #ff9999;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Animation -->
+  <div class="background"></div>
+
+  <!-- Back Button -->
+  <a href="javascript:history.back()" class="back-btn">← Back</a>
+
+  <h1>Inbox – Scam / Fake Mails</h1>
+
+  <!-- Table for Scam Mails -->
+  <table>
+    <thead>
+      <tr>
+        <th>Sender</th>
+        <th>Subject</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="primary">
+        <td>Unknown Recruiter</td>
+        <td><a class="mail-link" href="scamMail1.html">Congratulations! You've been selected. Click here.</a></td>
+        <td>02:21</td>
+      </tr>
+      <tr>
+        <td>Lottery Agent</td>
+        <td>You Won $1 Million – Claim Now <span class="pdf-icon">[PDF]</span></td>
+        <td>04:15</td>
+      </tr>
+      <tr>
+        <td>HR Department</td>
+        <td>Urgent Offer - Immediate Joining</td>
+        <td>06:00</td>
+      </tr>
+      <tr>
+        <td>Fake Company</td>
+        <td>Work from Home Opportunity – Big Earnings!</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Mr. Mail - Scam Detection Center</p>
+  </footer>
+
+</body>
+</html>

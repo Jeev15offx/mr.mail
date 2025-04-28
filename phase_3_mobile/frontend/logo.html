@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mr. Mail - The Mailxpert</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #111;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      overflow: hidden;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* Logo Container */
+    .logo-container {
+      text-align: center;
+      opacity: 0;
+      animation: fadeInLogoContainer 3s ease-in-out forwards;
+    }
+
+    /* Envelope */
+    .envelope {
+      position: relative;
+      width: 320px;
+      height: 200px;
+      background: radial-gradient(circle at center, #ff9900, #ffcc00, #ff9900);
+      clip-path: polygon(0% 30%, 50% 0%, 100% 30%, 100% 100%, 0% 100%);
+      border: 2px solid #ffb300;
+      border-radius: 8px;
+      margin-top: 20px;
+      opacity: 0;
+      animation: envelopeBounce 2s ease-out forwards;
+      animation-delay: 1s;
+    }
+
+    /* Envelope bounce effect */
+    @keyframes envelopeBounce {
+      0% { transform: scale(0.8); opacity: 0; }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* X-Cut for Envelope */
+    .x-cut {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 320px;
+      height: 200px;
+      pointer-events: none;
+    }
+
+    .x-cut::before,
+    .x-cut::after {
+      content: '';
+      position: absolute;
+      background: black;
+      width: 10px;
+      height: 380px;
+      top: -90px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      border-radius: 2px;
+      opacity: 0;
+      animation: fadeInPart 1s forwards;
+    }
+
+    .x-cut::after {
+      transform: translateX(-50%) rotate(-45deg);
+    }
+
+    /* Text glow and fade-in effect */
+    .glow-text {
+      font-family: 'Arial Black', sans-serif;
+      font-size: 50px;
+      font-weight: bold;
+      color: #ff9900;
+      text-shadow: 0 0 15px #ff9900, 0 0 30px #ff9900;
+      margin-top: 25px;
+      opacity: 0;
+      animation: fadeInText 2s ease-in-out forwards;
+      animation-delay: 2s;
+    }
+
+    .sub-text {
+      font-size: 22px;
+      margin-top: 8px;
+      color: #ffd700;
+      letter-spacing: 1px;
+      opacity: 0;
+      animation: fadeInText 2s ease-in-out forwards;
+      animation-delay: 3s;
+    }
+
+    /* Loading Bar Container */
+    .loading-bar-container {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 20px;
+      background-color: #333;
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+    }
+
+    /* Loading Bar */
+    .loading-bar {
+      width: 100%;
+      height: 100%;
+      background-color: #444;
+      border-radius: 25px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 5px #ff9900;
+    }
+
+    .loading-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: #ff9900;
+      animation: loadAnimation 5s linear forwards;
+    }
+
+    /* Magnifying Glass Animation */
+    .magnifying-glass {
+      position: absolute;
+      top: -30px;
+      left: -50px;
+      width: 50px;
+      height: 50px;
+      border: 3px solid #ff9900;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.6);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: magnifyAnimation 5s linear forwards;
+    }
+
+    .magnifying-glass:before {
+      content: '';
+      width: 24px;
+      height: 24px;
+      border: 3px solid #ff9900;
+      border-radius: 50%;
+      background-color: transparent;
+    }
+
+    /* Animations */
+    @keyframes fadeInLogoContainer {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeInText {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes fadeInPart {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes loadAnimation {
+      0% { left: -100%; }
+      100% { left: 0%; }
+    }
+
+    @keyframes magnifyAnimation {
+      0% { left: -50px; }
+      100% { left: 100%; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <div class="envelope">
+      <div class="x-cut"></div>
+    </div>
+    <div class="glow-text">MR. MAIL</div>
+    <div class="sub-text">The Mailxpert</div>
+  </div>
+
+  <!-- Loading Bar with Magnifying Glass -->
+  <div class="loading-bar-container">
+    <div class="loading-bar">
+      <div class="magnifying-glass"></div>
+    </div>
+  </div>
+  
+  <script>
+    // Wait for the logo animation to finish (3 seconds)
+    setTimeout(() => {
+        window.location.href = 'login.html'; // Redirect to login page
+    }, 10000); // 3000 milliseconds (3 seconds)
+</script>
+
+
+  <script>
+    // Optional: JavaScript to control loading bar logic
+  </script>
+</body>
+</html>

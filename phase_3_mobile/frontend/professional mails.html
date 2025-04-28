@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Mail - Golden Theme</title>
+  <style>
+    /* Reset and base styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(270deg, #ffd700, #ffcc00, #ffa500, #ffd700);
+      background-size: 800% 800%;
+      animation: goldenFlow 15s ease infinite;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Golden Flow Animation */
+    @keyframes goldenFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Header */
+    h1 {
+      text-align: center;
+      margin: 20px;
+      font-size: 36px;
+      color: #fff7cc;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px #ffd700, 0 0 20px #ffa500;
+    }
+
+    /* Back Button */
+    .back-btn {
+      background-color: #ffd700;
+      color: black;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      margin: 20px;
+      position: absolute;
+      top: 30px;
+      left: 20px;
+    }
+
+    .back-btn:hover {
+      background-color: #e6ac00;
+      transform: scale(1.05) rotate(-2deg);
+    }
+
+    /* Table Styling */
+    table {
+      width: 90%;
+      margin: 50px auto;
+      border-collapse: collapse;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      background: rgba(26, 19, 0, 0.9);
+      backdrop-filter: blur(4px);
+    }
+
+    thead {
+      background: linear-gradient(135deg, #ffd700, #ffcc00);
+      color: black;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      font-size: 18px;
+    }
+
+    th {
+      color: black;
+    }
+
+    tr {
+      border-bottom: 1px solid #4d3900;
+    }
+
+    tr.primary {
+      background-color: #4d3900;
+    }
+
+    tr:hover {
+      background-color: #3b2e00;
+    }
+
+    a.mail-link {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.mail-link:hover {
+      color: #ffcc00;
+      text-decoration: underline;
+    }
+
+    .pdf-icon {
+      font-size: 16px;
+      color: #ffd700;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+      border-top: 2px solid #4d3900;
+    }
+
+    footer a {
+      color: #ffd700;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- No ellipse / cylinder anymore -->
+
+  <!-- Back Button -->
+  <a href="javascript:history.back()" class="back-btn">← Back</a>
+
+  <h1>Inbox – Professional Mail</h1>
+
+  <!-- Table for Professional Mails -->
+  <table>
+    <thead>
+      <tr>
+        <th>Sender</th>
+        <th>Subject</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="primary">
+        <td>Microsoft</td>
+        <td><a class="mail-link" href="ProMail1.html">Request for Meeting to Discuss Project Timeline</a></td>
+        <td>18:39</td>
+      </tr>
+      <tr>
+        <td>Shiksha Exam Calendar</td>
+        <td>Your profile shortlisted for MBA admissions <span class="pdf-icon">[PDF]</span></td>
+        <td>13:53</td>
+      </tr>
+      <tr>
+        <td>Admissions Office</td>
+        <td>Admission Deadline on 30 Apr</td>
+        <td>11:55</td>
+      </tr>
+      <tr>
+        <td>Shiksha Exam Calendar</td>
+        <td>Here are some important MBA entrance exam updates for you!</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Mr. Mail - All Rights Reserved</p>
+    <p>Developed with ❤️ to keep your inbox safe.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bills</title>
+  <style>
+    /* Global Styling */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      position: relative;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1s ease-out;
+    }
+
+    /* Page Content Animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px;
+      font-size: 36px;
+      color: #ff9100;
+      text-transform: uppercase;
+      font-weight: bold;
+      animation: fadeIn 1s ease-out;
+    }
+
+    /* Back Button */
+    .back-btn {
+      background-color: #c21802;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      position: absolute;
+      top: 30px;
+      left: 20px;
+    }
+
+    .back-btn:hover {
+      background-color: #12d600;
+      transform: scale(1.05) rotate(-2deg);
+    }
+
+    /* Table Styling */
+    table {
+      width: 90%;
+      margin: 50px auto;
+      border-collapse: collapse;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      background: #1e1e1e;
+      animation: fadeIn 1s ease-out;
+    }
+
+    thead {
+      background: linear-gradient(135deg, #33ff00, #155a00);
+      color: white;
+    }
+
+    th, td {
+      padding: 20px;
+      text-align: left;
+      font-size: 18px;
+    }
+
+    th {
+      color: white;
+    }
+
+    tr {
+      border-bottom: 1px solid #444;
+    }
+
+    tr.primary {
+      background-color: #245a00;
+    }
+
+    tr:hover {
+      background-color: #333;
+    }
+
+    a.mail-link {
+      color: #19c702;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.mail-link:hover {
+      color: #33ff00;
+      text-decoration: underline;
+    }
+
+    .pdf-icon {
+      font-size: 16px;
+      color: #00ff22;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      font-size: 14px;
+      border-top: 2px solid #444;
+      animation: fadeIn 1s ease-out;
+    }
+
+    footer a {
+      color: #00ff2a6b;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Background Animation */
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, #35dd02, #01c71c, #00360c);
+      background-size: 400% 400%;
+      animation: gradientMove 5s ease infinite;
+      z-index: -1;
+      filter: blur(8px);
+    }
+
+    @keyframes gradientMove {
+      0% {
+        background-position: 0 0;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Animation -->
+  <div class="background"></div>
+
+  <!-- Back Button -->
+  <a href="javascript:history.back()" class="back-btn">← Back</a>
+
+  <h1>Inbox – Bills</h1>
+
+  <!-- Table for Bills -->
+  <table>
+    <thead>
+      <tr>
+        <th>Sender</th>
+        <th>Subject</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="primary">
+        <td>Electricity Provider</td>
+        <td><a class="mail-link" href="BillMail.html">Your Electricity Bill for April 2025 is Ready [PDF]</a></td>
+        <td>18:39</td>
+      </tr>
+      <tr>
+        <td>Mobile Carrier</td>
+        <td>Monthly Mobile Bill – Due on May 5, 2025 <span class="pdf-icon">[PDF]</span></td>
+        <td>13:53</td>
+      </tr>
+      <tr>
+        <td>Streaming Service</td>
+        <td>Payment Confirmation – Your April Subscription Receipt</td>
+        <td>11:55</td>
+      </tr>
+      <tr>
+        <td>HDFC Bank Credit Cards</td>
+        <td>Statement Ready – Total Due ₹13,492. Due by May</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Mr. Mail - All Rights Reserved</p>
+    <p>Developed with ❤️ to manage your bills effortlessly.</p>
+  </footer>
+
+</body>
+</html>

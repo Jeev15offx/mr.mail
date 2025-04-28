@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mr. Mail - Snooze System</title>
+  <style>
+    /* Smooth red-black background */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(270deg, #000000, #5a0e0e, #000000, #8b0000);
+      background-size: 800% 800%;
+      animation: gradientMove 20s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Container with glass effect */
+    .container {
+      background: rgba(30, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(139, 0, 0, 0.7);
+      text-align: center;
+      width: 380px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #ff4d4d;
+      text-shadow: 0 0 10px #ff1a1a;
+      font-size: 30px;
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      color: #ddd;
+    }
+
+    select, input[type="datetime-local"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      background-color: #222;
+      color: white;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    select:hover, input[type="datetime-local"]:hover {
+      box-shadow: 0 0 10px #ff4d4d;
+    }
+
+    button.snooze-button {
+      width: 100%;
+      padding: 14px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      background: linear-gradient(135deg, #ff4d4d, #b30000);
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button.snooze-button:hover {
+      background: linear-gradient(135deg, #b30000, #ff4d4d);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px #ff1a1a;
+    }
+
+    .note {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #bbb;
+    }
+
+    /* Success popup */
+    .popup {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background: #222;
+      color: #ff4d4d;
+      padding: 15px 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 77, 77, 0.8);
+      opacity: 0;
+      transform: translateY(-50px);
+      transition: all 0.5s ease;
+      z-index: 999;
+    }
+
+    .popup.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Floating glow particles */
+    .particle {
+      position: absolute;
+      background: rgba(255, 77, 77, 0.7);
+      border-radius: 50%;
+      width: 8px;
+      height: 8px;
+      animation: float 10s linear infinite;
+      opacity: 0.6;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100vh); }
+    }
+
+    /* Additional styling */
+    .center-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .center-link a {
+      color: #ff4d4d;
+      text-decoration: none;
+      font-size: 18px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .center-link a:hover {
+      color: #fff;
+      text-shadow: 0 0 5px #ff1a1a;
+    }
+
+    /* Form Container and Labels */
+    .form-container label {
+      font-size: 16px;
+      margin-bottom: 8px;
+      display: block;
+      color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Snooze Email Alerts</h2>
+    <p class="subtitle">Manage and snooze your email alerts in a royal way!</p>
+
+    <div class="form-container" id="formSection">
+      <form onsubmit="event.preventDefault(); generateSnoozeTicket();">
+        <!-- Email Select Column -->
+        <label for="emailSelect">Select Email:</label>
+        <select id="emailSelect" required>
+          <option value="">Select an Email</option>
+          <option value="example1@mail.com">example1@mail.com</option>
+          <option value="example2@mail.com">example2@mail.com</option>
+          <option value="example3@mail.com">example3@mail.com</option>
+          <!-- Add more options dynamically as needed -->
+        </select>
+
+        <label for="snoozeTime">Select Snooze Time:</label>
+        <select id="snoozeTime" required>
+          <option value="">Select Time</option>
+          <option>1 Hour</option>
+          <option>2 Hours</option>
+          <option>4 Hours</option>
+          <option>8 Hours</option>
+          <option>24 Hours</option>
+          <option>48 Hours</option>
+        </select>
+
+        <label for="snoozeReason">Reason for Snooze:</label>
+        <textarea id="snoozeReason" rows="4" required></textarea>
+
+        <button class="snooze-button" type="submit">Confirm Snooze</button>
+      </form>
+    </div>
+
+    <div class="ticket-container" id="ticketSection" style="display: none;">
+      <div class="ticket">
+        <p><strong>Snooze ID:</strong> <span id="ticketID"></span></p>
+        <p><strong>Email:</strong> <span id="ticketEmail"></span></p>
+        <p><strong>Snooze Time:</strong> <span id="ticketTime"></span></p>
+        <p><strong>Reason:</strong> <span id="ticketReason"></span></p>
+        <div class="qr">
+          <img id="qr-code" src="" alt="QR Code" width="160" height="160">
+        </div>
+      </div>
+      <button class="snooze-button" onclick="window.print()">Download Snooze Ticket</button>
+    </div>
+
+    <div class="center-link">
+      <h3><a href="index.html">Back to Inbox</a></h3>
+    </div>
+
+    <!-- Snooze Confirmation Popup -->
+    <div class="popup" id="popup">
+      <h2>Snooze Confirmed!</h2>
+      <p>Your snooze request has been successfully recorded.</p>
+      <button class="snooze-button" onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <script>
+    function generateSnoozeTicket() {
+      const email = document.getElementById('emailSelect').value;
+      const snoozeTime = document.getElementById('snoozeTime').value;
+      const reason = document.getElementById('snoozeReason').value;
+      const id = 'SNZ' + Math.floor(Math.random() * 1000000 + 100000);
+
+      // Fill ticket details
+      document.getElementById('ticketID').textContent = id;
+      document.getElementById('ticketEmail').textContent = email;
+      document.getElementById('ticketTime').textContent = snoozeTime;
+      document.getElementById('ticketReason').textContent = reason;
+
+      // QR code generation
+      const qrData = `Snooze ID: ${id}\nEmail: ${email}\nSnooze Time: ${snoozeTime}\nReason: ${reason}`;
+      document.getElementById('qr-code').src = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(qrData)}&size=160x160`;
+
+      // Show ticket, hide form
+      document.getElementById('formSection').style.display = 'none';
+      document.getElementById('ticketSection').style.display = 'block';
+
+      // Show popup
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
+

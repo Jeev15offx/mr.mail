@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mr. Mail - Home</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background-color: #1c1c1c;
+      color: white;
+      animation: fadeInBody 2s ease-in-out;
+    }
+
+    @keyframes fadeInBody {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 230px;
+      height: 100vh;
+      background: linear-gradient(135deg, #bb0101, #5a0300, #01113b);  /* Gradient from red to dark red */
+      color: white;
+      padding: 30px 15px;
+      position: fixed;
+      animation: slideInSidebar 1.2s ease;
+      box-shadow: 2px 0 15px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-size: 400% 400%;
+      animation: gradientAnimation 6s ease infinite;
+    }
+
+    @keyframes slideInSidebar {
+      from { transform: translateX(-100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .sidebar img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 15px;
+      background-color: #fff;
+      border-radius: 50%;
+      object-fit: contain;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 20px;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    .sidebar a {
+      display: block;
+      width: 100%;
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #ff9100;
+      text-align: center;
+      border-radius: 8px;
+      transition: all 0.3s ease, transform 0.2s ease;
+      font-weight: bold;
+    }
+
+    .sidebar a:hover {
+      background-color: #d65a00;
+      transform: scale(1.05) rotate(3deg);
+    }
+
+    /* Content */
+    .content {
+      margin-left: 250px;
+      padding: 30px;
+      animation: fadeInContent 1.5s ease;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    @keyframes fadeInContent {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Top Navigation */
+    .topnav {
+      background: linear-gradient(135deg, #bb0101, #5a0300);  /* Gradient from red to dark red */
+      text-align: center;
+      width: 100%;
+      margin-bottom: 30px;
+      padding: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      animation: dropIn 1s ease-out;
+      border-radius: 8px;
+      background-size: 400% 400%;
+      animation: gradientAnimation 6s ease infinite;
+    }
+
+    @keyframes dropIn {
+      from { transform: translateY(-100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .topnav a {
+      display: inline-block;
+      color: black;
+      text-decoration: none;
+      padding: 15px 25px;
+      font-size: 20px;
+      transition: transform 0.3s ease, color 0.3s;
+      font-weight: bold;
+    }
+
+    .topnav a:hover {
+      transform: scale(1.1);
+      color: white;
+    }
+
+    /* Logout Button */
+    .logout-btn {
+      background-color: #af1703;
+      border: none;
+      padding: 10px 20px;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 6px;
+      font-size: 18px;
+      transition: background 0.3s, transform 0.3s;
+      margin-bottom: 20px;
+      float: right;
+    }
+
+    .logout-btn:hover {
+      background-color: #faac03ec;
+      transform: scale(1.05) rotate(-3deg);
+    }
+
+    /* Banner */
+    .banner {
+      width: 100%;
+      height: 200px;
+      background-image: url('https://via.placeholder.com/1200x500/ff0000/1c1c1c?text=Welcome+to+Mr.Mail');
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      position: relative;
+      animation: backgroundAnim 5s infinite alternate;
+    }
+
+    @keyframes backgroundAnim {
+      0% {
+        background-image: url('https://via.placeholder.com/1200x500/ff0000/1c1c1c?text=Welcome+to+Mr.Mail');
+      }
+      50% {
+        background-image: url('https://via.placeholder.com/1200x500/cc3333/1c1c1c?text=Keep+Your+Inbox+Safe');
+      }
+      100% {
+        background-image: url('https://via.placeholder.com/1200x500/b33b0f/1c1c1c?text=Mr.Mail+Protection');
+      }
+    }
+
+    .banner h1 {
+      text-align: center;
+      color: white;
+      padding-top: 70px;
+      font-size: 36px;
+      font-weight: bold;
+      animation: fadeInBanner 1s ease-out;
+    }
+
+    @keyframes fadeInBanner {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Button Grid */
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 50px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .button-grid button {
+      background: linear-gradient(135deg, #aa0000, #500401);  /* Gradient from red to dark red */
+      border: none;
+      padding: 40px 20px;
+      font-size: 22px;
+      color: white;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.3s ease, box-shadow 0.3s, filter 0.3s;
+      background-size: 400% 400%;
+      animation: gradientAnimation 6s ease infinite;
+    }
+
+    .button-grid button:hover {
+      background: linear-gradient(135deg, #cc3333, #8a2a00); /* Hover gradient */
+      transform: translateY(-5px);
+      box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+      filter: brightness(1.2);
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-size: 14px;
+      animation: fadeInFooter 2s ease-in-out;
+    }
+
+    @keyframes fadeInFooter {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    footer a {
+      color: #ffa500;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin: 15px 0;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="sidebar">
+    <img src="image/mrmail_logo.png" alt="App Logo"/>
+    <h2>Mr. Mail</h2>
+    <a href="professional mails.html">Professional Mails</a>
+    <a href="Job Offers.html">Job Offers</a>
+    <a href="Bills.html">Bills</a>
+    <a href="Scam Mails.html">Scam Mails</a>
+    <a href="Personal Mails.html">Personal Mails</a>
+    <a href="Snooze Settings.html">Snooze Settings</a>
+    <a href="About Us.html">About Us</a>
+  </div>
+
+  <div class="content">
+    <div class="banner">
+      <h1>Welcome to Mr. Mail</h1>
+
+    <div class="topnav">
+      <a href="home.html">Home</a>
+      <a href="Write_Mail With Us.html">Write Mail With Us</a> <!-- Updated link -->
+      <a href="contact_us.html">Contact us</a>
+    </div>
+    
+    <button class="logout-btn" onclick="logout()">Logout</button>
+
+    <h2>Your Email Safety Companion</h2>
+
+    <div class="button-grid">
+      <button onclick="location.href='verify.html'">Verify Mails</button>
+      <button onclick="location.href='previous.html'">Previous Mails</button>
+      <button onclick="location.href='reminder.html'">Add to Reminder</button>
+      <button onclick="location.href='history.html'">History of Mails</button>
+    </div>
+
+    <footer>
+      <p>© 2025 Mr. Mail - All Rights Reserved</p>
+      <p>Developed with ❤️ to keep your inbox safe.</p>
+    </footer>
+  </div>
+
+  <script>
+    function logout() {
+      alert("You have been logged out!");
+      window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>

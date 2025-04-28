@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Offers</title>
+  <style>
+    /* Global Styling */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1s ease-out;
+    }
+
+    /* Background Animation */
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #004e92, #000428);
+      background-size: 300% 300%;
+      animation: gradientShift 8s ease infinite;
+      z-index: -1;
+      filter: blur(6px);
+    }
+
+    @keyframes gradientShift {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* Page Entry Animation */
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Heading */
+    h1 {
+      text-align: center;
+      margin: 20px;
+      font-size: 36px;
+      color: #00bcd4;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    /* Back Button */
+    .back-btn {
+      background-color: #007acc;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      position: absolute;
+      top: 30px;
+      left: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #005f99;
+      transform: scale(1.05) rotate(-2deg);
+    }
+
+    /* Table Styling */
+    table {
+      width: 90%;
+      margin: 50px auto;
+      border-collapse: collapse;
+      background: #1e1e1e;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+      overflow: hidden;
+      animation: fadeIn 1s ease-out;
+    }
+
+    thead {
+      background: linear-gradient(135deg, #007acc, #004e92);
+      color: white;
+    }
+
+    th, td {
+      padding: 20px;
+      text-align: left;
+      font-size: 18px;
+    }
+
+    tr {
+      border-bottom: 1px solid #333;
+    }
+
+    tr.primary {
+      background-color: #003c6c;
+    }
+
+    tr:hover {
+      background-color: #2a2a2a;
+    }
+
+    a.mail-link {
+      color: #00bcd4;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.mail-link:hover {
+      color: #00e5ff;
+      text-decoration: underline;
+    }
+
+    .pdf-icon {
+      font-size: 16px;
+      color: #00bcd4;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      border-top: 1px solid #333;
+    }
+
+    footer a {
+      color: #00e5ff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Animation -->
+  <div class="background"></div>
+
+  <!-- Back Button -->
+  <a href="javascript:history.back()" class="back-btn">← Back</a>
+
+  <h1>Inbox – Job Offers</h1>
+
+  <!-- Table for Job Mails -->
+  <table>
+    <thead>
+      <tr>
+        <th>Sender</th>
+        <th>Subject</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="primary">
+        <td>Microsoft</td>
+        <td><a class="mail-link" href="jobMail1.html">Application for Marketing Manager Position</a></td>
+        <td>18:39</td>
+      </tr>
+      <tr>
+        <td>Shiksha</td>
+        <td>Your profile shortlisted for MBA Block Manager <span class="pdf-icon">[PDF]</span></td>
+        <td>13:53</td>
+      </tr>
+      <tr>
+        <td>Admissions Office</td>
+        <td>Admissions Officer</td>
+        <td>11:55</td>
+      </tr>
+      <tr>
+        <td>Shiksha</td>
+        <td>Here are some important positions in our company</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Mr. Mail - Career Inbox</p>
+  </footer>
+
+</body>
+</html>

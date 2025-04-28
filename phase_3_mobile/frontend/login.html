@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Mr. Mail</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .login-container {
+      background: linear-gradient(135deg, #ff0000, #1c1c1c);
+      padding: 40px 60px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      width: 350px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .login-title {
+      font-size: 50px;
+      font-weight: bold;
+      color: #ff9900;
+      text-shadow: 0 0 5px #ff9900, 0 0 10px #ff9900;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      letter-spacing: 5px;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .login-title span {
+      opacity: 0;
+      animation: fadeInAnimation 1.5s ease-out forwards;
+    }
+
+    .login-title span:nth-child(1) {
+      animation-delay: 0.2s;
+    }
+
+    .login-title span:nth-child(2) {
+      animation-delay: 0.4s;
+    }
+
+    .login-title span:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    .login-title span:nth-child(4) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes fadeInAnimation {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.7);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 2px solid #ff9900;
+      border-radius: 5px;
+      background-color: transparent;
+      color: #fff;
+      font-size: 16px;
+      box-sizing: border-box;
+      transition: border-color 0.3s;
+    }
+
+    .input-field:focus {
+      outline: none;
+      border-color: #ffcc00;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff9900;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: #ffcc00;
+    }
+
+    .forgot-password {
+      color: #ff9900;
+      font-size: 14px;
+      margin-top: 15px;
+      display: block;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .forgot-password:hover {
+      color: #ffd700;
+    }
+
+    .sign-up-link {
+      color: #ff9900;
+      font-size: 14px;
+      margin-top: 20px;
+      display: block;
+    }
+
+    .sign-up-link:hover {
+      color: #ffd700;
+    }
+
+    .bubble {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      animation: floatBubble 6s ease-in-out infinite;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .at-symbol {
+      position: absolute;
+      font-size: 25px;
+      color: #ff9900;
+      animation: floatAtSymbol 6s ease-in-out infinite;
+      z-index: 1;
+      opacity: 0;
+    }
+
+    @keyframes floatBubble {
+      0% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-20vh);
+        opacity: 1;
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    @keyframes floatAtSymbol {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(-20vh) rotate(180deg);
+        opacity: 1;
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .bubble:nth-child(1) {
+      left: 10%;
+      animation-delay: 0s;
+      width: 35px;
+      height: 35px;
+    }
+
+    .bubble:nth-child(2) {
+      left: 40%;
+      animation-delay: 1s;
+      width: 45px;
+      height: 45px;
+    }
+
+    .bubble:nth-child(3) {
+      left: 70%;
+      animation-delay: 2s;
+      width: 30px;
+      height: 30px;
+    }
+
+    .bubble:nth-child(4) {
+      left: 25%;
+      animation-delay: 1.5s;
+      width: 40px;
+      height: 40px;
+    }
+
+    .bubble:nth-child(5) {
+      left: 50%;
+      animation-delay: 2.5s;
+      width: 50px;
+      height: 50px;
+    }
+
+    .at-symbol:nth-child(1) {
+      left: 5%;
+      animation-delay: 0s;
+      font-size: 30px;
+    }
+
+    .at-symbol:nth-child(2) {
+      left: 20%;
+      animation-delay: 1s;
+      font-size: 28px;
+    }
+
+    .at-symbol:nth-child(3) {
+      left: 40%;
+      animation-delay: 2s;
+      font-size: 32px;
+    }
+
+    .at-symbol:nth-child(4) {
+      left: 60%;
+      animation-delay: 1.5s;
+      font-size: 26px;
+    }
+
+    .at-symbol:nth-child(5) {
+      left: 80%;
+      animation-delay: 2.5s;
+      font-size: 30px;
+    }
+
+    .at-symbol:nth-child(6) {
+      left: 15%;
+      animation-delay: 0.5s;
+      font-size: 27px;
+    }
+
+    .at-symbol:nth-child(7) {
+      left: 35%;
+      animation-delay: 1.7s;
+      font-size: 34px;
+    }
+
+    .at-symbol:nth-child(8) {
+      left: 50%;
+      animation-delay: 2.2s;
+      font-size: 29px;
+    }
+
+    .at-symbol:nth-child(9) {
+      left: 65%;
+      animation-delay: 2.7s;
+      font-size: 33px;
+    }
+
+    .at-symbol:nth-child(10) {
+      left: 85%;
+      animation-delay: 3.1s;
+      font-size: 25px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-container">
+    <div class="logo-container">
+      <div class="login-title">
+        <span>M</span>
+        <span>R</span>
+        <span>.</span>
+        <span> </span>
+        <span>M</span>
+        <span>A</span>
+        <span>I</span>
+        <span>L</span>
+      </div>
+    </div>
+
+    <form onsubmit="handleLogin(event)">
+      <input id="username" type="text" class="input-field" placeholder="Username" />
+      <input id="password" type="password" class="input-field" placeholder="Password" />
+
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <a href="#" class="forgot-password">Forgot Password?</a>
+    <a href="#" class="sign-up-link">Create an Account</a>
+  </div>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();  // Prevents the form from submitting the traditional way
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      if (username === 'admin' && password === 'password') {
+        window.location.href = 'home.html';  // Replace with your actual home page URL
+      } else {
+        alert('Invalid credentials, please try again.');
+      }
+    }
+  </script>
+
+  <!-- Floating Bubbles -->
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+  <div class="bubble"></div>
+
+  <!-- Floating @ Symbols -->
+  <div class="at-symbol">@</div>
+  <div class="at-symbol">@</div>
+  <div class="at-symbol">@</div>
+  <div class="at-symbol">@</div>
+  <div class="at-symbol">@</div>
+  <div class="at-symbol">@</div>
+  <div class="at-symbol">@</div>
+  <div class="at-symbol">@</div>
+  <div class="at-symbol">@</div>
+  <div class="at-symbol">@</div>
+</body>
+</html>
