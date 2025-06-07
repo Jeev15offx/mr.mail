@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verify Mails - Mr. Mail</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #1c1c1c;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffa500;
+      font-size: 2.5em;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .verify-container {
+      max-width: 800px;
+      background: #2e2e2e;
+      padding: 30px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+      position: relative;
+      z-index: 10;
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      resize: vertical;
+      background-color: #333;
+      color: white;
+      outline: none;
+    }
+
+    textarea:focus {
+      border: 2px solid #ffa500;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    button {
+      flex: 1;
+      padding: 15px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 0 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    #verifyBtn {
+      background-color: #ff2f00;
+      color: white;
+    }
+
+    #verifyBtn:hover {
+      background-color: #d62600;
+    }
+
+    #previousBtn {
+      background-color: #555;
+      color: white;
+    }
+
+    #previousBtn:hover {
+      background-color: #777;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      text-align: center;
+      padding: 15px;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .safe {
+      background-color: #004d00;
+      color: #aaffaa;
+      border: 2px solid #00ff00;
+      animation: celebration 2s ease-out;
+    }
+
+    .scam {
+      background-color: #4d0000;
+      color: #ffaaaa;
+      border: 2px solid #ff0000;
+    }
+
+    .suspicious {
+      background-color: #4d2f00;
+      color: #ffeaaa;
+      border: 2px solid #ffcc00;
+    }
+
+    @keyframes celebration {
+      0% { transform: scale(1); opacity: 0; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); opacity: 0; }
+    }
+
+    .traffic-light {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 80px;
+      height: 200px;
+      background: #333;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      padding: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .light {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #222;
+      transition: background 0.5s, box-shadow 0.5s;
+    }
+
+    .green-glow {
+      background: #00ff00;
+      box-shadow: 0 0 25px #00ff00;
+    }
+
+    .yellow-glow {
+      background: #ffcc00;
+      box-shadow: 0 0 25px #ffcc00;
+    }
+
+    .red-glow {
+      background: #ff0000;
+      box-shadow: 0 0 25px #ff0000;
+    }
+
+    @media (max-width: 768px) {
+      .verify-container {
+        padding: 15px;
+        width: 90%;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5em;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 12px;
+      }
+
+      .result {
+        font-size: 18px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      button {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Verify Mail Content</h1>
+
+  <div class="verify-container">
+    <textarea id="emailContent" placeholder="Paste your email content here..."></textarea>
+    <div class="buttons">
+      <button id="verifyBtn" onclick="verifyMail()">Verify Now</button>
+      <button id="previousBtn" onclick="goToPrevious()">Previous Mail</button>
+    </div>
+    <div id="resultBox" class="result"></div>
+  </div>
+
+  <div class="traffic-light" id="traffic-light">
+    <div class="light" id="red"></div>
+    <div class="light" id="yellow"></div>
+    <div class="light" id="green"></div>
+  </div>
+
+  <script>
+    function verifyMail() {
+      const content = document.getElementById('emailContent').value.trim().toLowerCase();
+      const resultBox = document.getElementById('resultBox');
+      const red = document.getElementById('red');
+      const yellow = document.getElementById('yellow');
+      const green = document.getElementById('green');
+      const trafficLight = document.getElementById('traffic-light');
+
+      red.classList.remove('red-glow');
+      yellow.classList.remove('yellow-glow');
+      green.classList.remove('green-glow');
+      resultBox.style.display = 'none';
+      document.body.style.backgroundColor = '#1c1c1c';
+
+      const scamKeywords = ['lottery', 'urgent', 'click here', 'bank account', 'verify now', 'password', 'gift card', 'congratulations', 'free money', 'winners', 'transfer', 'award', 'exclusive offer', 'limited time', 'contact immediately', 'investment opportunity', 'secure account'];
+      const suspiciousKeywords = ['dear', 'regards', 'best wishes', 'kindly', 'looking forward', 'we noticed'];
+
+      if (!content) {
+        resultBox.className = 'result suspicious';
+        resultBox.textContent = "❓ Please paste the email content.";
+        resultBox.style.display = "block";
+        return;
+      }
+
+      localStorage.setItem("lastMail", content);
+      const buzzerSound = new Audio('https://www.soundjay.com/button/beep-07.wav');
+      const isScam = scamKeywords.some(keyword => content.includes(keyword));
+      const isSuspicious = suspiciousKeywords.some(keyword => content.includes(keyword));
+
+      if (isScam) {
+        buzzerSound.play();
+        red.classList.add('red-glow');
+        resultBox.className = 'result scam';
+        resultBox.textContent = "⚠️ This email is likely a scam!";
+        document.body.style.backgroundColor = '#4d0000';
+      } else if (isSuspicious) {
+        yellow.classList.add('yellow-glow');
+        resultBox.className = 'result suspicious';
+        resultBox.textContent = "❓ Email looks suspicious. Please be cautious.";
+        document.body.style.backgroundColor = '#4d2f00';
+
+        const questionMark = document.createElement("span");
+        questionMark.textContent = "?";
+        questionMark.style.fontSize = "50px";
+        questionMark.style.position = "absolute";
+        questionMark.style.top = "50%";
+        questionMark.style.left = "50%";
+        questionMark.style.transform = "translate(-50%, -50%)";
+        questionMark.style.animation = "pulse 1.5s infinite";
+        document.body.appendChild(questionMark);
+
+        setTimeout(() => questionMark.remove(), 2000);
+      } else {
+        green.classList.add('green-glow');
+        resultBox.className = 'result safe';
+        resultBox.textContent = "✅ This email seems safe.";
+        document.body.style.backgroundColor = '#004d00';
+      }
+
+      resultBox.style.display = 'block';
+    }
+
+    function goToPrevious() {
+      window.location.href = "previous.html";
+    }
+  </script>
+
+</body>
+</html>

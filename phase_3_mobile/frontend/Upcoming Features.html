@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upcoming Features</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1a0000, #330000);
+      overflow-x: hidden;
+      color: #fff;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 3rem;
+      color: gold;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 15px red;
+      animation: glowText 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowText {
+      0% {
+        text-shadow: 0 0 10px red, 0 0 20px gold;
+      }
+      100% {
+        text-shadow: 0 0 20px gold, 0 0 30px red;
+      }
+    }
+
+    .features-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 40px 20px;
+    }
+
+    .feature-card {
+      background: linear-gradient(145deg, rgba(255, 0, 0, 0.3), rgba(255, 215, 0, 0.2));
+      border: 2px solid gold;
+      border-radius: 20px;
+      padding: 25px 20px;
+      width: 260px;
+      height: 260px;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+      animation: float 4s ease-in-out infinite, glow 2.5s ease-in-out infinite;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      perspective: 1000px;
+      backdrop-filter: blur(4px);
+    }
+
+    .feature-card:hover {
+      transform: scale(1.05) rotateY(3deg);
+      box-shadow: 0 0 25px gold;
+    }
+
+    .feature-title {
+      font-size: 1.4rem;
+      color: #ffd700;
+      margin-bottom: 12px;
+      text-shadow: 0 0 4px #ff3333;
+    }
+
+    .feature-desc, .feature-card p {
+      font-size: 1rem;
+      color: #ffe0e0;
+      margin: 0;
+      padding: 0 5px;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #ff9;
+      background-color: rgba(255, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 4px 10px;
+      display: inline-block;
+      text-shadow: 0 0 3px #ff0;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes glow {
+      0% {
+        box-shadow: 0 0 10px red, 0 0 20px gold;
+      }
+      100% {
+        box-shadow: 0 0 20px gold, 0 0 30px red;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .feature-card {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1 class="section-title">Upcoming Features</h1>
+
+  <div class="features-container">
+    <div class="feature-card">
+      <div class="feature-title"> Verify Suspicious Links</div>
+      <div class="feature-desc">Scan links before clicking — stay safe from phishing.</div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title">Email with AI</div>
+      <div class="feature-desc">Start writing or edit your emails with Mr.Mail AI assistance.</div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title"> WhatsApp & SMS Check</div>
+      <div class="feature-desc">Paste a message and instantly check if it’s legit or fake.</div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title">Trusted Job Mailbox</div>
+      <div class="feature-desc">Explore verified job emails within our secure job zone.</div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title"> AI Assistant (Coming Soon)</div>
+      <div class="feature-desc">Ask about job posts, scams or messages — get answers instantly.</div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title"> Real-time Monitoring</div>
+      <p>Auto-scan new mails and links for risky content in the background.</p>
+      <div class="status">Beta Testing</div>
+    </div>
+
+    <div class="feature-card">
+      <div class="feature-title"> Real-Time Scam Alerts</div>
+      <div class="feature-desc">Stay alert with live scams trending in your region.</div>
+    </div>
+  </div>
+
+</body>
+</html>

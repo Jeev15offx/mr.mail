@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App Settings</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(-45deg, #016601, #02ac10, #e1ffe1, #e8ebe8);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      color: #222;
+    }
+
+    @keyframes gradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background: rgba(233, 172, 3, 0.9);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .setting {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    select, input[type="checkbox"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .save-btn { background-color: #4CAF50; color: white; }
+    .reset-btn { background-color: #f31708; color: white; }
+
+    .save-btn:hover { background-color: #45a049; }
+    .reset-btn:hover { background-color: #f81100; }
+
+    .advanced-settings {
+      margin-top: 20px;
+      background-color: #f3fdf3;
+      padding: 15px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>App Settings</h2>
+
+    <div class="setting">
+      <label for="language">Language</label>
+      <select id="language">
+        <option>English</option>
+        <option>தமிழ் (Tamil)</option>
+        <option>हिन्दी (Hindi)</option>
+        <option>മലയാളം (Malayalam)</option>
+        <option>తెలుగు (Telugu)</option>
+      </select>
+    </div>
+
+    <div class="setting">
+      <label for="timeFormat">Time Format</label>
+      <select id="timeFormat">
+        <option>12-Hour</option>
+        <option>24-Hour (Railway Time)</option>
+      </select>
+    </div>
+
+    <div class="setting">
+      <label for="theme">Theme</label>
+      <select id="theme">
+        <option>Default</option>
+        <option>Royal Red-Black</option>
+        <option>Light Mode</option>
+        <option>Dark Mode</option>
+        <option>Nature Green</option>
+      </select>
+    </div>
+
+    <div class="setting">
+      <label for="fontSize">Font Size</label>
+      <select id="fontSize">
+        <option>Small</option>
+        <option selected>Medium</option>
+        <option>Large</option>
+      </select>
+    </div>
+
+    <div class="setting">
+      <label for="animations">Enable Animations</label>
+      <input type="checkbox" id="animations" checked>
+    </div>
+
+    <div class="setting">
+      <label for="notifications">Push Notifications</label>
+      <input type="checkbox" id="notifications">
+    </div>
+
+    <div class="setting">
+      <label for="compactView">Compact View</label>
+      <input type="checkbox" id="compactView">
+    </div>
+
+    <div class="advanced-settings">
+      <h3>Advanced Settings</h3>
+      <div class="setting">
+        <label for="beta">Join Beta Features</label>
+        <input type="checkbox" id="beta">
+      </div>
+
+      <div class="setting">
+        <label for="privacyMode">Privacy Mode</label>
+        <input type="checkbox" id="privacyMode">
+      </div>
+
+      <div class="setting">
+        <label for="security">Enable Fingerprint Lock</label>
+        <input type="checkbox" id="security">
+      </div>
+    </div>
+
+    <div class="btn-group">
+      <button class="save-btn">Save Settings</button>
+      <button class="reset-btn">Restore Default</button>
+    </div>
+  </div>
+</body>
+</html>
