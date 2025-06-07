@@ -2,10 +2,10 @@ Mr.Mail - Fake Job Email Detection App
 -> Mr.Mail is a smart application designed to detect and prevent fake job emails using machine learning and data analysis.
 
  Features
-✔ Automatically stores pasted emails in a database
-✔ Categorizes emails based on risk level (Safe, Suspicious, Fraud)
-✔ Provides snooze alerts for follow-ups
-✔ Uses AI/ML techniques to improve detection accuracy
+ Automatically stores pasted emails in a database
+ Categorizes emails based on risk level (Safe, Suspicious, Fraud)
+ Provides snooze alerts for follow-ups
+ Uses AI/ML techniques to improve detection accuracy
 
  Tech Stack
  Frontend: (If applicable, e.g., React, Flutter, etc.)
